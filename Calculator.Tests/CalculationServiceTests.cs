@@ -26,6 +26,14 @@ public class Tests
         
         Assert.That(result, Is.EqualTo(1));
     }
+    
+    [Test]
+    public void CaluclationOfZeroValueStringReturnsZero()
+    {
+        var result = _service.Calculate("0");
+        
+        Assert.That(result, Is.EqualTo(0));
+    }
 
     [Test]
     public void CaluclationOfNullStringReturnsZero()
@@ -52,5 +60,15 @@ public class Tests
         var result = _service.Calculate("1,2");
         
         Assert.That(result, Is.EqualTo(3));
+    }
+    
+    [Test]
+    [TestCase("1,1,1,1,1,1,1,1,1,1",10)]
+    [TestCase("2,2,2,2,2,2,2,2,2,2",20)]
+    public void CaluclationOfLongInputStringReturnsSum(string input, int expectedResult)
+    {
+        var result = _service.Calculate(input);
+        
+        Assert.That(result, Is.EqualTo(expectedResult));
     }
 }

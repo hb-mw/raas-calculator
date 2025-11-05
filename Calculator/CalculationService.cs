@@ -25,10 +25,18 @@ public class CalculationService
         
         int result = 0;
         var numbersArray = Splitter(numbers,spliters);
-        
+
+        var currentindex = 0;
+        List<string> invalidInputs;
         foreach (var num in numbersArray)
         { 
-            result += int.Parse(num);
+            if (int.TryParse(num, out var numricresult))
+            {
+                throw new Exception($"{numricresult} is not a valid number, index : {currentindex}");
+            }
+
+            result += numricresult;
+            currentindex++;
         }
         
         return result;
@@ -49,6 +57,10 @@ public class CalculationService
             {
                 continue;
             }
+
+            var value = input[i].ToString();
+            
+
             
             result.Add(input[i].ToString());
         }

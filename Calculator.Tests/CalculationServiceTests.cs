@@ -73,10 +73,11 @@ public class Tests
     }
 
     [Test]
-    public void CaclualtionOfStringWithStickSperatorAndCommaShouldReturnSum()
+    [TestCase("1|2,2",5)]
+    public void CaclualtionOfStringWithStickSperatorAndCommaShouldReturnSum(string input, int expectedResult)
     {
-        var result = _service.Calculate("1,|2");
+        var result = _service.Calculate(input);
         
-        Assert.That(result, Is.EqualTo(3));
+        Assert.That(result, Is.EqualTo(expectedResult));
     }
 }

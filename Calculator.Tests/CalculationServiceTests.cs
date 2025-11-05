@@ -22,11 +22,17 @@ public class Tests
     [Test]
     public void CaluclationOfSingleStringReturnsOne()
     {
-        // RED
         var result = _service.Calculate("1");
         
         Assert.That(result, Is.EqualTo(1));
     }
 
+    [Test]
+    public void CaluclationOfNullStringReturnsZero()
+    {
+        var result = _service.Calculate(null!);
+        
+        Assert.That(result, Is.EqualTo(0));
+    }
     
 }

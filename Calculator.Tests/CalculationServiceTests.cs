@@ -71,4 +71,12 @@ public class Tests
         
         Assert.That(result, Is.EqualTo(expectedResult));
     }
+
+    [Test]
+    public void CaclualtionOfStringWithStickSperatorAndCommaShouldReturnSum()
+    {
+        var result = _service.Calculate("1,|2");
+        
+        Assert.That(result, Is.EqualTo(3));
+    }
 }

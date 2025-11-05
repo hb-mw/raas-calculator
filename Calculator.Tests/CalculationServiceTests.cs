@@ -36,11 +36,14 @@ public class Tests
     }
     
     [Test]
-    public void CaluclationOf2StringReturnsSum()
+    [TestCase("12",3)]
+    [TestCase("00",0)]
+    [TestCase("55",10)]
+    public void CaluclationOf2StringReturnsSum(string input, int expectedResult)
     {
-        var result = _service.Calculate("11");
+        var result = _service.Calculate(input);
         
-        Assert.That(result, Is.EqualTo(2));
+        Assert.That(result, Is.EqualTo(expectedResult));
     }
     
 }

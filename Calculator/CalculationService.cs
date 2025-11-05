@@ -16,6 +16,13 @@ public class CalculationService
             spliters += '|';
         }
         
+        if (numbers.StartsWith("//"))
+        {
+            spliters = numbers[2].ToString();
+            var nums =  numbers.Split($"//{spliters}\n");
+            numbers = nums[1];
+        }
+        
         int result = 0;
         var numbersArray = Splitter(numbers,spliters);
         

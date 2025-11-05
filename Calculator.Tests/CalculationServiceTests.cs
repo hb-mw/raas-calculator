@@ -82,7 +82,9 @@ public class Tests
     }
     
     [Test]
-    [TestCase("//;\n1;2",5)]
+    [TestCase("//;\n1;2",3)]
+    [TestCase("//,\n1,2",3)]
+    [TestCase("//|\n1|2",3)]
     public void CaclualtionOfStringWithCustomDelimeterShouldReturnSum(string input, int expectedResult)
     {
         var result = _service.Calculate(input);

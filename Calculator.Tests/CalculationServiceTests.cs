@@ -91,4 +91,12 @@ public class Tests
         
         Assert.That(result, Is.EqualTo(expectedResult));
     }
+    
+    [Test]
+    [TestCase("-1")]
+    public void CacluationOfAStringWithNegativeValuesShouldThrowException(string input)
+    {
+        Assert.Throws<Exception>(()=>_service.Calculate(input));
+    }
+    
 }

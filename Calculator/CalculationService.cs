@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace Calculator;
 
 public class CalculationService
@@ -27,14 +29,22 @@ public class CalculationService
         var numbersArray = Splitter(numbers,spliters);
 
         var currentindex = 0;
-        List<string> invalidInputs;
+        
+        Dictionary<string,int> invalidInputs = [];
+        
         foreach (var num in numbersArray)
         { 
             if (int.TryParse(num, out var numricresult))
             {
-                throw new Exception($"{numricresult} is not a valid number, index : {currentindex}");
+                invalidInputs[num]= currentindex;
+                continue;
             }
 
+            if (invalidInputs.Any())
+            {
+                var index = invalidInputs.First();
+                throw new Exception($"Invalid input,{index.Key}:{index.Value}");
+            }
             result += numricresult;
             currentindex++;
         }

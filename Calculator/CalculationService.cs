@@ -2,8 +2,12 @@ namespace Calculator;
 
 public class CalculationService
 {
-    public void Calculate(string numbers)
+    public int Calculate(string numbers)
     {
-        
+        if (string.IsNullOrEmpty(numbers))
+        {
+            return 0;
+        }
+        return int.Parse(numbers);
     }
 }

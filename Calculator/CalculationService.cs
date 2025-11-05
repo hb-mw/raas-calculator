@@ -8,6 +8,14 @@ public class CalculationService
         {
             return 0;
         }
-        return int.Parse(numbers);
+
+        int result = 0;
+        
+        foreach (var num in numbers)
+        { 
+            result += int.Parse(num.ToString());
+        }
+        
+        return result;
     }
 }

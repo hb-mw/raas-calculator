@@ -35,4 +35,12 @@ public class Tests
         Assert.That(result, Is.EqualTo(0));
     }
     
+    [Test]
+    public void CaluclationOf2StringReturnsSum()
+    {
+        var result = _service.Calculate("11");
+        
+        Assert.That(result, Is.EqualTo(2));
+    }
+    
 }

@@ -80,4 +80,13 @@ public class Tests
         
         Assert.That(result, Is.EqualTo(expectedResult));
     }
+    
+    [Test]
+    [TestCase("//;\n1;2",5)]
+    public void CaclualtionOfStringWithCustomDelimeterShouldReturnSum(string input, int expectedResult)
+    {
+        var result = _service.Calculate(input);
+        
+        Assert.That(result, Is.EqualTo(expectedResult));
+    }
 }

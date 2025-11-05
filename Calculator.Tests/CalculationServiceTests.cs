@@ -36,9 +36,9 @@ public class Tests
     }
     
     [Test]
-    [TestCase("12",3)]
-    [TestCase("00",0)]
-    [TestCase("55",10)]
+    [TestCase("1,2",3)]
+    [TestCase("0,0",0)]
+    [TestCase("5,5",10)]
     public void CaluclationOf2StringReturnsSum(string input, int expectedResult)
     {
         var result = _service.Calculate(input);

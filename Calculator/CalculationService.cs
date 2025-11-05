@@ -10,10 +10,11 @@ public class CalculationService
         }
 
         int result = 0;
+        var numbersArray = numbers.Split(',');
         
-        foreach (var num in numbers)
+        foreach (var num in numbersArray)
         { 
-            result += int.Parse(num.ToString());
+            result += int.Parse(num);
         }
         
         return result;
